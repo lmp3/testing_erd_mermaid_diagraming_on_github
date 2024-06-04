@@ -4,34 +4,32 @@ Trying to see if the ERD (Entity Relationship Diagrams) portion of Mermaid works
 ```mermaid
 erDiagram
     USERS ||--|{ POSTS : write
-    USERS ||--|{ REPLIES: write
-    USERS ||..|{ FAVORITES: poke
+    USERS ||--|{ REPLIES : write
+    USERS ||..|{ FAVORITES : chose
     USERS {
-        primary_key id
+        string id PK
         string username
         string email
         datetime date_created
     }
-    POSTS ||--|{ REPLIES : respond
-    REPLIES ||--|{ POSTS : respond
     POSTS {
-        primary_key id
-        foreign_key user_id
+        string id PK
+        string user_id FK
         string content
         datetime date_created
     }
-    REPLIES |{--|| POSTS : back-to
+    REPLIES |{--|| POSTS : respond
     REPLIES {
-        primary-key id
-        foreign_key user_id
-        foreign_key post_id
+        string id PK
+        string user_id FK
+        string post_id FK
         string content
         datetime date_created
     }
-    FAVORITES |{--|| USERS : back-to
     FAVORITES {
-        primary-key id
-        foreign_key user_id
-        foreign_key post_id
+        string id PK
+        string user_id FK
+        string post_id FK
     }
 ```
+Keys can be PK, FK or UK, for Primary Key, Foreign Key or Unique Key. 
