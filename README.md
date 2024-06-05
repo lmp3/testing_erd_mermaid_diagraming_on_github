@@ -5,7 +5,7 @@ Trying to see if the ERD (Entity Relationship Diagrams) portion of Mermaid works
 erDiagram
     USERS ||--|{ POSTS : write
     USERS ||--|{ REPLIES : write
-    USERS ||..|{ FAVORITES : chose
+    USERS ||..o{ FAVORITES : chose
     USERS {
         string id PK
         string username
@@ -32,4 +32,13 @@ erDiagram
         string post_id FK
     }
 ```
+Markup Used to Create Diagrams
+
+| Value (left) | Value (right) | Meaning |
+| :---: | :---: | :------------- |
+| \|o | o\| | Zero or one |
+| \|\| | \|\| | Exactly one |
+| }o  | o{ | Zero or more (no upper limit) |
+| }\|  | \|{ | One or more (no upper limit) 'Crowfoot'|
+
 Keys can be PK, FK or UK, for Primary Key, Foreign Key or Unique Key. 
